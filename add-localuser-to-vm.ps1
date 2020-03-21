@@ -36,7 +36,8 @@ param (
 #	[Int[]] $AllowedPorts # NSG rules
 	[Parameter(Mandatory=$true)]
 	[ValidateNotNullOrEmpty()]
-	[Security.SecureString]$Password=$(Throw "Password required.")
+#	[Security.SecureString]$Password=$(Throw "Password required.")
+	[string]$Password=$(Throw "Password required.")
 )
 
 
@@ -47,7 +48,9 @@ param (
 
 #$Group					= "Power Users"
 
-New-LocalUser "$user" -Password $Password -FullName $FullName -Description $Description
+$securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
+
+New-LocalUser "$user" -Password $securePassword -FullName $FullName -Description $Description
 
 Add-LocalGroupMember -Group $Group -Member $User
 Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
