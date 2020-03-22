@@ -51,9 +51,9 @@ param (
 
 $securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
 
-Write-Host $securePassword
+#Write-Host $securePassword
 
-#New-LocalUser "$user" -Password $securePassword -FullName $FullName -Description $Description
+New-LocalUser "$user" -Password $securePassword -FullName $FullName -Description $Description
 
-#Add-LocalGroupMember -Group $Group -Member $User
-#Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
+Add-LocalGroupMember -Group "Power Users" -Member $User
+Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
