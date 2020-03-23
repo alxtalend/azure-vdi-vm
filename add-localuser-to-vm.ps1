@@ -41,7 +41,6 @@ param (
 
 )
 
-
 #$User					= "testUser"
 #$FullName				= "testUser"
 #$Description			= "testUser"
@@ -49,11 +48,15 @@ param (
 
 #$Group					= "Power Users"
 
+#https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-7
 $securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Write-Host $securePassword
 
+#https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/new-localuser?view=powershell-5.1
 New-LocalUser "$user" -Password $securePassword -FullName $FullName -Description $Description
 
-Add-LocalGroupMember -Group "Power Users" -Member $User
+#https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/add-localgroupmember?view=powershell-5.1
+#Add-LocalGroupMember -Group "Power Users" -Member $User
 Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
+Add-LocalGroupMember -Group "Administrators" -Member $User
