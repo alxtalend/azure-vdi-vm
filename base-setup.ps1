@@ -31,7 +31,7 @@ Download-File -url "https://build.openvpn.net/downloads/releases/tap-windows-9.2
 Start-Process -Wait -FilePath "tap-windows-Win10.exe" -Verb runAs -ArgumentList '/S'
 Start-Process -Wait -FilePath "openvpn-install.exe" -Verb runAs -ArgumentList '/S','/SELECT_TAP=0'
 
-if (![string]::IsNullOrEmpty($maChaine)) {
+if (![string]::IsNullOrEmpty($OpenVPNProfile)) {
     Download-File -url $OpenVPNProfile -name "C:\Program Files\OpenVPN\config\Talend.ovpn"
 }
 
