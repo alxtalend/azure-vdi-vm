@@ -7,9 +7,6 @@ param (
 
 
 function Download-File ($url,$name) {
-
-#	$url = "https://talend365.sharepoint.com/:u:/g/departments/IT/EekvNLmGJB5NuLrJTV-QITgBdv-zbMcAC-3DK8vEIAkL_Q?e=WAYqdP&web=0&download=1"
-#	$output = "openvpn-install.exe"
 	$start_time = Get-Date
 
 	Import-Module BitsTransfer
