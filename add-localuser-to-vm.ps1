@@ -14,26 +14,6 @@ param (
 	[ValidateSet('Power Users','Administrators')]
 	[string] $Group="Power Users", # User Group
 	
-#	[Parameter(Mandatory=$true)]
-#	[string] $VirtualNetworkName, # VNet
-	
-#	[Parameter(Mandatory=$true)]
-#	[string] $SubnetName, # Subnet
-	
-#	[Parameter(Mandatory=$true)]
-#	[string] $SecurityGroupName, # NSG
-	
-#	[Parameter(Mandatory=$false)]
-#	[string] $VMSize, # VM Size
-	
-#	[Parameter(Mandatory=$false)]
-#	[switch] $AssignPublicIP, # Assign PIP
-	
-#	[Parameter(Mandatory=$false)]
-#	[pscredential]$VMCredential, # VM login credential
-	
-#	[Parameter(Mandatory=$false)]
-#	[Int[]] $AllowedPorts # NSG rules
 	[Parameter(Mandatory=$true)]
 	[ValidateNotNullOrEmpty()]
 	[string]$Password=$(Throw "Password required.")
